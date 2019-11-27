@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import com.howtodoinjava.demo.exception.RecordNotFoundException;
 import com.howtodoinjava.demo.model.EmployeeEntity;
@@ -23,7 +24,7 @@ public class EmployeeService {
 	{
 		List<EmployeeEntity> result = (List<EmployeeEntity>) repository.findAll();
 		
-		if(result.size() > 0) {
+		if(result.size()> 0) {
 			return result;
 		} else {
 			return new ArrayList<EmployeeEntity>();
@@ -82,5 +83,10 @@ public class EmployeeService {
 		} else {
 			throw new RecordNotFoundException("No employee record exist for given id");
 		}
+	}
+
+	public static boolean checkuser(String username, String password) {
+	
+		return checkuser(username, password);
 	} 
 }
